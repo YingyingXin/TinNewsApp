@@ -1,6 +1,6 @@
 package com.laioffer.tinnews.network;
 
-import android.content.Context;
+
 
 import java.io.IOException;
 
@@ -15,7 +15,8 @@ public class RetrofitClient {
     private static final String API_KEY = "716e19febf8b4afe9408d665d22e7436";
     private static final String BASE_URL = "https://newsapi.org/v2/";
 
-    public static Retrofit newInstance(Context context) {
+//    public static Retrofit newInstance(Context context) { //context 是给Gander用到
+        public static Retrofit newInstance() {
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .addInterceptor(new HeaderInterceptor())
                 .build();
@@ -37,6 +38,7 @@ public class RetrofitClient {
                     .build();
             return chain.proceed(request);
         }
+
     }
 
 }

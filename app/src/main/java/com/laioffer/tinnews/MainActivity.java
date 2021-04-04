@@ -32,22 +32,23 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
         NavigationUI.setupActionBarWithNavController(this, navController);
 
-        NewsApi api = RetrofitClient.newInstance(this).create(NewsApi.class);//interface 变成object implement
-        api.getTopHeadinglines("US").enqueue(new Callback<NewsResponse>() {
-            @Override
-            public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
-                if (response.isSuccessful()) {
-                    Log.d("getTopHeadlines", response.body().toString());
-                } else {
-                    Log.d("getTopHeadlines", response.toString());
-                }
-            }
+//        NewsApi api = RetrofitClient.newInstance().create(NewsApi.class);//interface 变成object implement， this指retrofit传入的context，如果没有传入就不需要写this
 
-            @Override
-            public void onFailure(Call<NewsResponse> call, Throwable t) {
-                Log.d("getTopHeadlines", t.toString());
-            }
-        });
+//        api.getTopHeadinglines("US").enqueue(new Callback<NewsResponse>() {
+//            @Override
+//            public void onResponse(Call<NewsResponse> call, Response<NewsResponse> response) {
+//                if (response.isSuccessful()) {
+//                    Log.d("getTopHeadlines", response.body().toString());
+//                } else {
+//                    Log.d("getTopHeadlines", response.toString());
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<NewsResponse> call, Throwable t) {
+//                Log.d("getTopHeadlines", t.toString());
+//            }
+//        });
     }
 
 
